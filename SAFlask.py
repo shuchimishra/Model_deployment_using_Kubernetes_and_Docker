@@ -21,10 +21,10 @@ from flask import Flask, jsonify, make_response, request
 
 app = Flask(__name__)
 padding_size = 1000
-model = tf.keras.models.load_model('./model_output/sentiment_analysis.hdf5')
-text_encoder = tfds.features.text.TokenTextEncoder.load_from_file("./model_output/sa_encoder.vocab")
+model = tf.keras.models.load_model('/Users/shuchimishra/Library/CloudStorage/GoogleDrive-shuchimishra@g.ucla.edu/My Drive/Data Science & Machine Learning/MLOps/Repository/model_output/sentiment_analysis.hdf5')
+text_encoder = tfds.deprecated.text.TokenTextEncoder.load_from_file("/Users/shuchimishra/Library/CloudStorage/GoogleDrive-shuchimishra@g.ucla.edu/My Drive/Data Science & Machine Learning/MLOps/Repository/model_output/sa_encoder.vocab")
 
-print('Model and Vocabalory loaded.......')
+print('Model and Vocabulory loaded.......')
 
 
 def pad_to_size(vec, size):
