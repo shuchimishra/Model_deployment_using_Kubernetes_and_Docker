@@ -7,7 +7,9 @@ WORKDIR $APP_HOME
 COPY . ./
 
 # Install dependencies
-RUN pip install tensorflow==2.1.0 tensorflow-datasets Flask gunicorn
+RUN pip install tensorflow==2.1.0 tensorflow-datasets Flask gunicorn healthcheck google-cloud-logging
 
 # Run the flask service on container startup
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 SAGunicorns
+# Note worker does not share memory but threads share memory;
+# which means model will be loaded multiple time within each worker
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 SAGunicorns:app
