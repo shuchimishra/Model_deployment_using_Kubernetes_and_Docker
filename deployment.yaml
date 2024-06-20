@@ -17,6 +17,7 @@ spec:
         image: gcr.io/shuchi-project/saflask-gke
         ports:
         - containerPort: 8080
-          env:
+          # protocol: TCP
+        env:
           - name: PORT
             value: "8080"

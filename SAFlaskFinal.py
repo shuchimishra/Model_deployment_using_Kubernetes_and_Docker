@@ -3,7 +3,7 @@ import tensorflow as tf
 from flask import Flask, jsonify, make_response, request
 from healthcheck import HealthCheck
 
-#To log into GCP 
+#To log into GCP
 import google.cloud.logging
 client = google.cloud.logging.Client()
 client.setup_logging()
@@ -13,7 +13,7 @@ import logging
 app = Flask(__name__)
 padding_size = 1000
 model = tf.keras.models.load_model('sentiment_analysis.hdf5')
-text_encoder = tfds.features.text.TokenTextEncoder.load_from_file("sa_encoder.vocab")
+text_encoder = tfds.deprecated.text.TokenTextEncoder.load_from_file("sa_encoder.vocab")
 
 # logging.basicConfig(filename="flask.log", level=logging.DEBUG,
 #                     format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')

@@ -4,8 +4,8 @@ metadata:
   name: saclassifier
 spec:
   type: LoadBalancer
-    selector:
-      app: saclassifier
-    ports:
-      - port: 80
-      targetPort: 8080
+  selector:
+    app: saclassifier
+  ports:
+  - port: 80
+    targetPort: 8080
